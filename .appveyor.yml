@@ -1,11 +1,21 @@
-image: Ubuntu1804  # образ для сборки
-stack: node 12  # окружение
-branches:
-  only:
-    - main  # ветка git
-cache: node_modules  # кеширование
+# Test against the latest version of this Node.js version
+environment:
+  nodejs_version: "6"
+
+# Install scripts. (runs after repo cloning)
 install:
-  - npm install  # команда установки зависимостей
-build: off  # отключаем встроенную в appveyor систему сборки
+  # Get the latest stable version of Node.js or io.js
+  - ps: Install-Product node $env:nodejs_version
+  # install modules
+  - npm install
+
+# Post-install test scripts.
 test_script:
-  - npm run lint && npm test  # скрипт тестирования
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+  # run tests
+  - npm test
+
+# Don't actually build.
+build: off
