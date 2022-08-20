@@ -1,6 +1,5 @@
 import calculate from '../app.js';
 
-
 test('calculate', () => {
   const person = [
     { name: 'мечник', health: 10 },
