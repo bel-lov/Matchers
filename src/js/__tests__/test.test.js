@@ -1,7 +1,6 @@
 import calculate from '../app.js';
 
-let test;
-let expect;
+
 test('calculate', () => {
   const person = [
     { name: 'мечник', health: 10 },
