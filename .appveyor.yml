@@ -9,6 +9,3 @@ install:
 build: off  # отключаем встроенную в appveyor систему сборки
 test_script:
   - npm run lint && npm test  # скрипт тестирования
-cache:
-  - '%USERPROFILE%\.cargo'
-  - target
